@@ -8,7 +8,6 @@ namespace Assets.Scripts
 {
     public interface IGameManager
     {
-        void StartUp();
         void Dispose();
     }
 }

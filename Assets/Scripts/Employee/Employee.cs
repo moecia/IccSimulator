@@ -7,12 +7,14 @@ namespace Assets.Scripts.Employee
     public class Employee
     {
         public int Id { get; set; }
+        public int Rank { get; set; }
         public string Name { get; set; }
         public string Sex { get; set; }
         public string BirthDate { get; set; }
         public string Department { get; set; }
         public string Title { get; set; }
         public int Leadership { get; set; }
+        public float Talent { get; set; }
         public int Salary { get; set; }
         public int YearsOfExprience { get; set; }
         public int YearsOfEmployment { get; set; }

@@ -4,52 +4,77 @@ using UnityEngine;
 
 namespace Assets.Scripts.Employee
 {
-    public class Character : MonoBehaviour, ICharacter
+    public class Character : ICharacter
     {
-        private readonly Employee employee;
+        private readonly Employee _employee;
+        private IGameManager _settingsManager;
+        private EmployeeType _employeeType;
 
-        public Character(EmployeeType type)
+        public Character(EmployeeType employeeType)
         {
-            switch (type) 
-            {
-                case EmployeeType.Contractor:
-                    employee = new Contractor();
-                    break;
-                case EmployeeType.Finance:
-                    employee = new Finance();
-                    break;
-                case EmployeeType.Hr:
-                    employee = new HumanResources();
-                    break;
-                case EmployeeType.Lawyer:
-                    employee = new Lawyer();
-                    break;
-                case EmployeeType.Pr:
-                    employee = new PublicRelationship();
-                    break;
-                case EmployeeType.Sales:
-                    employee = new Sales();
-                    break;
-                case EmployeeType.Traing:
-                    employee = new Contractor();
-                    break;
-            }
+            _settingsManager = UnitOfWork.settingsManager;
+            _employeeType = employeeType;
+
+            Employee employee = BuildEmployee();
+            _employee = employee;
         }
 
-        public void Report()
+        private Employee BuildEmployee()
         {
-            Debug.Log(this.GetType() + " report to duty");
+            Employee employee = new Employee();
+            switch (_employeeType)
+            {
+                case EmployeeType.C:
+                    employee = new Contractor();
+                    break;
+                case EmployeeType.F:
+                    employee = new Finance();
+                    break;
+                case EmployeeType.H:
+                    employee = new HumanResources();
+                    break;
+                case EmployeeType.L:
+                    employee = new Lawyer();
+                    break;
+                case EmployeeType.P:
+                    employee = new PublicRelationship();
+                    break;
+                case EmployeeType.S:
+                    employee = new Sales();
+                    break;
+                case EmployeeType.T:
+                    employee = new Trainer();
+                    break;
+            }
+
+            return employee;
+        }
+
+        public bool Hire()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool Promote()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool Dismiss()
+        {
+            throw new System.NotImplementedException();
         }
     }
 
     public enum EmployeeType
     {
-        Contractor,
-        Finance,
-        Hr,
-        Lawyer,
-        Pr,
-        Sales,
-        Traing
+        C,
+        F,
+        H,
+        L,
+        P,
+        S,
+        T
     }
+
 }

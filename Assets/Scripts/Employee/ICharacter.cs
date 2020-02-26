@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface ICharacter
 {
-    
-    void Report();
+    bool Hire();
+    bool Promote();
+    bool Dismiss();
 }

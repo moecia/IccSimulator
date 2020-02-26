@@ -7,27 +7,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.Company
 {
-    public class CompanyManager : MonoBehaviour, IGameManager
+    public class CompanyManager : IGameManager
     {
-        private static CompanyManager instance;
-        public static CompanyManager Instance
-        {
-            get 
-            {
-                if (!instance)
-                {
-                    instance = new CompanyManager();
-                }
-                return instance;
-            }
-        }
-
         public CompanyInfo companyInfo { get; private set; }
 
         public CompanyManager()
         {
-            // TODO: Read save file
-            companyInfo = new CompanyInfo();
+            this.companyInfo = new CompanyInfo();
         }
 
         public void RankIncrement()
@@ -56,13 +42,72 @@ namespace Assets.Scripts.Company
             }
         }
 
-        public void Dispose()
+        public void ResearchPointsIncrement(int amount)
         {
+            var currRp = this.companyInfo.ResearchPoints;
+            var res = +amount;
+            if (res >= float.MaxValue)
+            {
+                currRp = int.MaxValue;
+            }
+            else if (res <= float.MinValue)
+            {
+                currRp = int.MinValue;
+            }
+            else
+            {
+                currRp = res;
+            }
         }
 
-        public void StartUp()
+        public bool EmployeesUpdate(int amount)
         {
-            instance = new CompanyManager(); 
+            if (this.companyInfo.Employees + amount > 0)
+            {
+                switch (this.companyInfo.Rank)
+                {
+                    case 1:
+                        if (this.companyInfo.Employees + amount < Constants.RankOneMaxEmployees)
+                        {
+                            this.companyInfo.Employees += amount;
+                            return true;
+                        }
+                        break;
+                    case 2:
+                        if (this.companyInfo.Employees + amount < Constants.RankTwoMaxEmployees)
+                        {
+                            this.companyInfo.Employees += amount;
+                            return true;
+                        }
+                        break;
+                    case 3:
+                        if (this.companyInfo.Employees + amount < Constants.RankThreeMaxEmployees)
+                        {
+                            this.companyInfo.Employees += amount;
+                            return true;
+                        }
+                        break;
+                    case 4:
+                        if (this.companyInfo.Employees + amount < Constants.RankFourMaxEmployees)
+                        {
+                            this.companyInfo.Employees += amount;
+                            return true;
+                        }
+                        break;
+                    case 5:
+                        if (this.companyInfo.Employees + amount < Constants.RankFiveMaxEmployees)
+                        {
+                            this.companyInfo.Employees += amount;
+                            return true;
+                        }
+                        break;
+                }
+            }
+            return false;
+        }
+        
+        public void Dispose()
+        {
         }
     }
 }
