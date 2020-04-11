@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Settings
 {
-    public class SettingsManager: IGameManager
+    public class SettingsManager: MonoBehaviour
     {
         public Settings settings { get; private set; }
 
@@ -20,10 +16,6 @@ namespace Assets.Scripts.Settings
         public void SetLanguage(LanguageCodes languageCode)
         {
             settings.Language = languageCode;
-        }
-
-        public void Dispose()
-        {
         }
     }
 
