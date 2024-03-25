@@ -75,7 +75,7 @@
       <td>
         Trainer: 初级数分（SQL）高级数分，（Python）<br>
         HR：招人研究IV， 401K match(all)<br>
-        Marketing:卖人研究IV<br>
+        Marketing:卖人研究IV，中型全国企业，大型全国企业<br>
         Attorney:催债公司/法律传票
       </td>
    </tr>
@@ -84,9 +84,9 @@
       <td>Trainer: unlimited<br>HR: unlimited<br>Marketing: unlimited<br>Attorney: unlimited</td>
       <td>
         Trainer: Data Engineer（AWS), ML Engineer, AI Engineer<br>
-        HR：招人研究V，<br>
-        Marketing：卖人研究V<br>
-        Attorney：
+        HR：招人研究V，组建董事会<br>
+        Marketing：卖人研究V，海外聘用，巨头公司<br>
+        Attorney：合规财务报表，SEC合规性<br>
       </td>
    </tr>
 </table>
@@ -151,6 +151,10 @@ Client（consultant每半月盈利提升，可以给企业一个耳熟能详的�
 - E-Verify：解锁H1B研究，OPT工作年限可延长至3年，解锁EAD员工招聘
 - H1B：解锁职业绿卡研究，可以给OPT员工抽签或办理H1B，办理H1B中的员工一年内无法离职且大大降低其跑路概率，解锁H1B员工招聘
 - 绿卡：可以给员工办理绿卡，办理绿卡的员工1年内（1年为基础时常，该时间会随着"全局环境-绿卡排期"的恶化而变长）无法离职且大大降低其跑路概率
+
+### 上市科技
+- HR：组建董事会
+- Attorney：合规财务报表，SEC合规性
 
 # 劳动合同
 
